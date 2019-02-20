@@ -170,3 +170,7 @@ df = df.T.drop_duplicates().T
 a = np.array([[1 , 2] , [3 , 4]])
 b = a.flatten()
 c = a.ravel()
+# 对于时间回归问题，如果想要对时间序列进行数据翻转的提取，骚操作如下所示
+max_size = 100                                                   
+train_all = train_all.iloc[:,-(max_size):].astype('float32')
+train_all = train_all.iloc[:,::-1].copy().astype('float32')                                                   
